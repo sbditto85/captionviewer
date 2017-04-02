@@ -1,6 +1,99 @@
 <html>
-  <head><title>Yay</title></head>
-  <body>
-    <a href="testvideo.html">Test Video Captions</a>
-  </body>
+    <head>
+        <title>Test</title>
+    </head>
+    <body>
+        <video controls autoplay>
+        </video>
+        <div id="errorMsg"></div>
+        <div id="controls">
+            <input id="caption" />
+            <button id="button" type="button">Say me for 10 seconds</button>
+            <button id="playcaptions" type="button">Play Captions</button>
+            <button id="pausecaptions" type="button">Pause Captions</button>
+        </div>
+        <div id="elm"></div>
+        <script>
+         var video = document.querySelector('video');
+         var constraints = window.constraints = {
+             audio: false,
+             video: true
+         };
+         var errorElement = document.querySelector('#errorMsg');
+
+         navigator.mediaDevices.getUserMedia(constraints)
+                  .then(function(stream) {
+                      video.srcObject = stream;
+                      var captions = video.addTextTrack('captions', 'live captions', 'en-US');
+                      window.captions = captions;
+                      captions.mode = "showing";
+                      //captions.addCue(new VTTCue(1,5, 'Hey bishop look at me!'));
+                      //captions.addCue(new VTTCue(5.5,10, 'A small working example of captions.\n\nSo you know.'));
+
+                      //captions.addCue(new VTTCue(video.currentTime+3,video.currentTime+10,"Hello, Person"));
+                      //captions.activeCues[0].endTime = 0;
+
+                      var btn = document.querySelector("#button");
+                      var inp = document.querySelector("#caption");
+                      btn.onclick = function() {
+                          var active = captions.activeCues
+                          var lenCaps = active.length;
+                          for(var i = 0; i < lenCaps; i++) {
+                              active[i].endTime = 0;
+                          }
+                          captions.addCue(new VTTCue(video.currentTime,video.currentTime+10,inp.value));
+                          inp.value = "";
+                      };
+
+                      //For playing around and stuffs
+                      window.stream = stream;
+                      window.captions = captions;
+                  })
+                  .catch(function(error) {
+                      if (error.name === 'ConstraintNotSatisfiedError') {
+                          errorMsg('The resolution ' + constraints.video.width.exact + 'x' +
+                                   constraints.video.width.exact + ' px is not supported by your device.');
+                      } else if (error.name === 'PermissionDeniedError') {
+                          errorMsg('Permissions have not been granted to use your camera and ' +
+                                   'microphone, you need to allow the page access to your devices in ' +
+                                   'order for the demo to work.');
+                      }
+                      errorMsg('getUserMedia error: ' + error.name, error);
+                  });
+
+         function errorMsg(msg, error) {
+             errorElement.innerHTML += '<p>' + msg + '</p>';
+             if (typeof error !== 'undefined') {
+                 console.error(error);
+             }
+         }
+        </script>
+        <script type="text/javascript" src="elm.js"></script>
+        <script>
+         var node = document.getElementById("elm");
+         var elm = Elm.Main.embed(node);
+         window.elm = elm;
+         elm.ports.addCaption.subscribe(function(str) {
+             captions.addCue(new VTTCue(video.currentTime,video.currentTime+10000,str));
+         });
+         elm.ports.removeCaption.subscribe(function(str) {
+             var active = captions.activeCues
+             var lenCaps = active.length;
+             for(var i = 0; i < lenCaps; i++) {
+                 if(active[i].text == str) {
+                     active[i].endTime = 0;
+                     return; // just remove one not all in case there are multiple lines that are the same
+                 }
+             }
+         });
+         var btnPlayCaptions = document.getElementById("playcaptions");
+         btnPlayCaptions.onclick = function() {
+             elm.ports.changePlayCaption.send(true);
+         };
+         var btnPauseCaptions = document.getElementById("pausecaptions");
+         btnPauseCaptions.onclick = function() {
+             elm.ports.changePlayCaption.send(false);
+         };
+        </script>
+    </body>
 </html>
