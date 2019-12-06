@@ -22,10 +22,10 @@
         wasm.__wbg_function_table.get(77)(arg0, arg1, addHeapObject(arg2));
     }
     function __wbg_elem_binding1(arg0, arg1, arg2) {
-        wasm.__wbg_function_table.get(2)(arg0, arg1, addHeapObject(arg2));
+        wasm.__wbg_function_table.get(6)(arg0, arg1, arg2);
     }
     function __wbg_elem_binding2(arg0, arg1, arg2) {
-        wasm.__wbg_function_table.get(6)(arg0, arg1, arg2);
+        wasm.__wbg_function_table.get(2)(arg0, arg1, addHeapObject(arg2));
     }
     function __wbg_elem_binding3(arg0, arg1) {
         wasm.__wbg_function_table.get(50)(arg0, arg1);
@@ -1135,66 +1135,6 @@ function init(module) {
             handleError(e)
         }
     };
-    imports.wbg.__widl_instanceof_KeyboardEvent = function(arg0) {
-        const ret = getObject(arg0) instanceof KeyboardEvent;
-        return ret;
-    };
-    imports.wbg.__widl_f_stop_propagation_Event = function(arg0) {
-        getObject(arg0).stopPropagation();
-    };
-    imports.wbg.__widl_f_key_KeyboardEvent = function(arg0, arg1) {
-        const ret = getObject(arg1).key;
-        const ret0 = passStringToWasm(ret);
-        const ret1 = WASM_VECTOR_LEN;
-        getInt32Memory()[arg0 / 4 + 0] = ret0;
-        getInt32Memory()[arg0 / 4 + 1] = ret1;
-    };
-    imports.wbg.__widl_instanceof_CustomEvent = function(arg0) {
-        const ret = getObject(arg0) instanceof CustomEvent;
-        return ret;
-    };
-    imports.wbg.__widl_f_detail_CustomEvent = function(arg0) {
-        const ret = getObject(arg0).detail;
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbindgen_json_serialize = function(arg0, arg1) {
-        const ret = JSON.stringify(getObject(arg1));
-        const ret0 = passStringToWasm(ret);
-        const ret1 = WASM_VECTOR_LEN;
-        getInt32Memory()[arg0 / 4 + 0] = ret0;
-        getInt32Memory()[arg0 / 4 + 1] = ret1;
-    };
-    imports.wbg.__widl_f_inner_html_Element = function(arg0, arg1) {
-        const ret = getObject(arg1).innerHTML;
-        const ret0 = passStringToWasm(ret);
-        const ret1 = WASM_VECTOR_LEN;
-        getInt32Memory()[arg0 / 4 + 0] = ret0;
-        getInt32Memory()[arg0 / 4 + 1] = ret1;
-    };
-    imports.wbg.__widl_instanceof_MouseEvent = function(arg0) {
-        const ret = getObject(arg0) instanceof MouseEvent;
-        return ret;
-    };
-    imports.wbg.__widl_f_offset_x_MouseEvent = function(arg0) {
-        const ret = getObject(arg0).offsetX;
-        return ret;
-    };
-    imports.wbg.__widl_f_offset_y_MouseEvent = function(arg0) {
-        const ret = getObject(arg0).offsetY;
-        return ret;
-    };
-    imports.wbg.__widl_f_ctrl_key_MouseEvent = function(arg0) {
-        const ret = getObject(arg0).ctrlKey;
-        return ret;
-    };
-    imports.wbg.__widl_f_client_x_MouseEvent = function(arg0) {
-        const ret = getObject(arg0).clientX;
-        return ret;
-    };
-    imports.wbg.__widl_f_client_y_MouseEvent = function(arg0) {
-        const ret = getObject(arg0).clientY;
-        return ret;
-    };
     imports.wbg.__wbg_wbgtestinvoke_30def8908229173a = function(arg0, arg1) {
         const state0 = {a: arg0, b: arg1};
         const cb0 = () => {
@@ -1277,10 +1217,70 @@ function init(module) {
             handleError(e)
         }
     };
+    imports.wbg.__widl_instanceof_KeyboardEvent = function(arg0) {
+        const ret = getObject(arg0) instanceof KeyboardEvent;
+        return ret;
+    };
+    imports.wbg.__widl_f_stop_propagation_Event = function(arg0) {
+        getObject(arg0).stopPropagation();
+    };
+    imports.wbg.__widl_f_key_KeyboardEvent = function(arg0, arg1) {
+        const ret = getObject(arg1).key;
+        const ret0 = passStringToWasm(ret);
+        const ret1 = WASM_VECTOR_LEN;
+        getInt32Memory()[arg0 / 4 + 0] = ret0;
+        getInt32Memory()[arg0 / 4 + 1] = ret1;
+    };
+    imports.wbg.__widl_instanceof_CustomEvent = function(arg0) {
+        const ret = getObject(arg0) instanceof CustomEvent;
+        return ret;
+    };
+    imports.wbg.__widl_f_detail_CustomEvent = function(arg0) {
+        const ret = getObject(arg0).detail;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_json_serialize = function(arg0, arg1) {
+        const ret = JSON.stringify(getObject(arg1));
+        const ret0 = passStringToWasm(ret);
+        const ret1 = WASM_VECTOR_LEN;
+        getInt32Memory()[arg0 / 4 + 0] = ret0;
+        getInt32Memory()[arg0 / 4 + 1] = ret1;
+    };
+    imports.wbg.__widl_f_inner_html_Element = function(arg0, arg1) {
+        const ret = getObject(arg1).innerHTML;
+        const ret0 = passStringToWasm(ret);
+        const ret1 = WASM_VECTOR_LEN;
+        getInt32Memory()[arg0 / 4 + 0] = ret0;
+        getInt32Memory()[arg0 / 4 + 1] = ret1;
+    };
+    imports.wbg.__widl_instanceof_MouseEvent = function(arg0) {
+        const ret = getObject(arg0) instanceof MouseEvent;
+        return ret;
+    };
+    imports.wbg.__widl_f_offset_x_MouseEvent = function(arg0) {
+        const ret = getObject(arg0).offsetX;
+        return ret;
+    };
+    imports.wbg.__widl_f_offset_y_MouseEvent = function(arg0) {
+        const ret = getObject(arg0).offsetY;
+        return ret;
+    };
+    imports.wbg.__widl_f_ctrl_key_MouseEvent = function(arg0) {
+        const ret = getObject(arg0).ctrlKey;
+        return ret;
+    };
+    imports.wbg.__widl_f_client_x_MouseEvent = function(arg0) {
+        const ret = getObject(arg0).clientX;
+        return ret;
+    };
+    imports.wbg.__widl_f_client_y_MouseEvent = function(arg0) {
+        const ret = getObject(arg0).clientY;
+        return ret;
+    };
     imports.wbg.__widl_f_set_inner_html_Element = function(arg0, arg1, arg2) {
         getObject(arg0).innerHTML = getStringFromWasm(arg1, arg2);
     };
-    imports.wbg.__wbindgen_closure_wrapper171 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper173 = function(arg0, arg1, arg2) {
         const state = { a: arg0, b: arg1, cnt: 1 };
         const real = (arg0) => {
             state.cnt++;
@@ -1289,7 +1289,7 @@ function init(module) {
             try {
                 return __wbg_elem_binding1(a, state.b, arg0);
             } finally {
-                if (--state.cnt === 0) wasm.__wbg_function_table.get(3)(a, state.b);
+                if (--state.cnt === 0) wasm.__wbg_function_table.get(7)(a, state.b);
                 else state.a = a;
             }
         }
@@ -1316,7 +1316,7 @@ function init(module) {
         const ret = real;
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper173 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper171 = function(arg0, arg1, arg2) {
         const state = { a: arg0, b: arg1, cnt: 1 };
         const real = (arg0) => {
             state.cnt++;
@@ -1325,7 +1325,7 @@ function init(module) {
             try {
                 return __wbg_elem_binding2(a, state.b, arg0);
             } finally {
-                if (--state.cnt === 0) wasm.__wbg_function_table.get(7)(a, state.b);
+                if (--state.cnt === 0) wasm.__wbg_function_table.get(3)(a, state.b);
                 else state.a = a;
             }
         }
@@ -1338,13 +1338,11 @@ function init(module) {
     if (module instanceof URL || typeof module === 'string' || module instanceof Request) {
 
         const response = fetch(module);
-        let clone = response.clone();
-        console.log(clone);
         if (typeof WebAssembly.instantiateStreaming === 'function') {
             result = WebAssembly.instantiateStreaming(response, imports)
             .catch(e => {
                 console.warn("`WebAssembly.instantiateStreaming` failed. Assuming this is because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n", e);
-                return clone
+                return response
                 .then(r => r.arrayBuffer())
                 .then(bytes => WebAssembly.instantiate(bytes, imports));
             });
