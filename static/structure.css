@@ -1,0 +1,135 @@
+html,
+body {
+    height: 100%;
+    margin: 0
+}
+#app {
+    height: 100%;
+}
+#main_container {
+    height: 100%;
+    min-width: 1024px;
+    display: grid;
+    grid-template-columns: 250px auto 250px;
+    grid-template-rows: 50px auto 50px;
+    grid-template-areas:
+        "file_menu file_menu file_menu"
+        "components diagram context"
+        "components views views";
+}
+#filemenu {
+    grid-area: file_menu;
+}
+#filemenu .file_header_main {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+#filemenu .file_header_sub {
+    display: inline-block;
+    padding: 2px;
+    margin: 9px 3px;
+}
+#components {
+    grid-area: components;
+}
+#components .component_icon {
+    padding: 11px;
+}
+#diagram {
+    grid-area: diagram;
+    overflow: auto;
+    position: relative;
+    padding: 30px;
+}
+#diagram svg {
+    display: block;
+    margin: auto;
+}
+#diagram .overlay {
+    position: relative;
+    /* pointer-events: none; */
+    top: -800px;
+    width: 800px;
+    height: 800px;
+    margin: auto;
+}
+#context {
+    grid-area: context;
+}
+#views {
+    grid-area: views;
+}
+#views .view_list {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+#views .view_list_view {
+    display: inline-block;
+    padding: 13px 9px;
+    margin: 0px;
+}
+.component {
+    width:100px;
+    height:100px;
+}
+.no_drop {
+    pointer-events: none;
+}
+
+foreignObject {
+    pointer-events: none;
+}
+foreignObject.edit {
+    pointer-events: inherit;
+}
+#editor {
+    /* display:none; */
+    pointer-events: none;
+}
+
+.exploded-terminal-connections {
+    width: 100%;
+    height: 100%;
+}
+.exploded-terminal-connections__connection {
+    width: 90px;
+    height: 40px;
+    margin: 5px;
+    display: inline-block;
+    pointer-events: all;
+}
+.action_item:hover > * {
+    cursor: pointer;
+}
+#context .context_panel_heading {
+    font-size: 1.1em;
+    text-align: center;
+}
+#context .context_panel_item label, #context .context_panel_item input {
+    width: 45%;
+    display: inline-block;
+}
+#context .context_panel_item textarea {
+    width: 100%;
+}
+#context .context_panel_item label:after {
+    content: ":";
+}
+#context .context_panel_item .context_panel_item_value {
+    min-height: 20px;
+}
+#context .multi_select_list {
+    margin: 0px;
+    padding: 0px;
+}
+#context .multi_select_list li {
+    list-style: none;
+    border-bottom: 1px solid black;
+}
+#context .multi_select_list li:last-child {
+    list-style: none;
+    border-bottom: none;
+}
+    

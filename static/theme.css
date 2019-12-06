@@ -1,0 +1,49 @@
+.see_border {
+    border: 1px dotted grey;
+}
+#diagram {
+    background: grey;
+}
+#diagram svg {
+    background: white;
+}
+#filemenu .file_header_sub {
+    /* border: 1px solid black; */
+}
+/* #components .component_icon { */
+/*     border: 1px dotted gray; */
+/* } */
+
+#views .view_list_view {
+    border: 1px solid black;
+    border-top: none;
+    border-radius: 13px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.exploded-terminal-connections {
+    background: grey;
+}
+.exploded-terminal-connections__connection {
+    background: white;
+    border-color: black;
+}
+.action_item:hover > * {
+    fill: #aaa !important;
+    stroke: #aaa !important;
+}
+
+#context .context_panel_item {
+    border-bottom: 1px solid #000;
+}
+#context .context_panel_item:last-child {
+    border-bottom: none;
+}
+#context .context_panel_item .label {
+    text-decoration: underline;
+}
+.connection_end_option:hover {
+    background: #ddd;
+    cursor: pointer;
+}
