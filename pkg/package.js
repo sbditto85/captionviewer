@@ -1338,11 +1338,13 @@ function init(module) {
     if (module instanceof URL || typeof module === 'string' || module instanceof Request) {
 
         const response = fetch(module);
+        let clone = response.clone();
+        console.log(clone);
         if (typeof WebAssembly.instantiateStreaming === 'function') {
             result = WebAssembly.instantiateStreaming(response, imports)
             .catch(e => {
                 console.warn("`WebAssembly.instantiateStreaming` failed. Assuming this is because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n", e);
-                return response
+                return clone
                 .then(r => r.arrayBuffer())
                 .then(bytes => WebAssembly.instantiate(bytes, imports));
             });
