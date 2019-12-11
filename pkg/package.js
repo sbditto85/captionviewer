@@ -22,7 +22,7 @@
         _assertNum(arg1);
         _assertNum(arg2);
         try {
-            wasm.__wbg_function_table.get(182)(arg0, arg1, arg2);
+            wasm.__wbg_function_table.get(186)(arg0, arg1, arg2);
         } catch (e) {
             logError(e)
         }
@@ -50,7 +50,7 @@
         _assertNum(arg0);
         _assertNum(arg1);
         try {
-            wasm.__wbg_function_table.get(1192)(arg0, arg1, addHeapObject(arg2));
+            wasm.__wbg_function_table.get(184)(arg0, arg1, addHeapObject(arg2));
         } catch (e) {
             logError(e)
         }
@@ -59,7 +59,7 @@
         _assertNum(arg0);
         _assertNum(arg1);
         try {
-            wasm.__wbg_function_table.get(180)(arg0, arg1, addHeapObject(arg2));
+            wasm.__wbg_function_table.get(1211)(arg0, arg1, addHeapObject(arg2));
         } catch (e) {
             logError(e)
         }
@@ -68,7 +68,7 @@
         _assertNum(arg0);
         _assertNum(arg1);
         try {
-            wasm.__wbg_function_table.get(1112)(arg0, arg1);
+            wasm.__wbg_function_table.get(1131)(arg0, arg1);
         } catch (e) {
             logError(e)
         }
@@ -78,7 +78,7 @@
         _assertNum(arg1);
         _assertNum(arg3);
         try {
-            wasm.__wbg_function_table.get(1218)(arg0, arg1, addHeapObject(arg2), arg3, addHeapObject(arg4));
+            wasm.__wbg_function_table.get(1237)(arg0, arg1, addHeapObject(arg2), arg3, addHeapObject(arg4));
         } catch (e) {
             logError(e)
         }
@@ -87,7 +87,7 @@
         _assertNum(arg0);
         _assertNum(arg1);
         try {
-            wasm.__wbg_function_table.get(1214)(arg0, arg1, addHeapObject(arg2), addHeapObject(arg3));
+            wasm.__wbg_function_table.get(1233)(arg0, arg1, addHeapObject(arg2), addHeapObject(arg3));
         } catch (e) {
             logError(e)
         }
@@ -1194,6 +1194,15 @@ function init(module) {
             logError(e)
         }
     };
+    imports.wbg.__widl_f_checked_HTMLInputElement = function(arg0) {
+        try {
+            const ret = getObject(arg0).checked;
+            _assertBoolean(ret);
+            return ret;
+        } catch (e) {
+            logError(e)
+        }
+    };
     imports.wbg.__widl_f_set_checked_HTMLInputElement = function(arg0, arg1) {
         try {
             getObject(arg0).checked = arg1 !== 0;
@@ -2091,29 +2100,7 @@ function init(module) {
             logError(e)
         }
     };
-    imports.wbg.__wbindgen_closure_wrapper3955 = function(arg0, arg1, arg2) {
-        const state = { a: arg0, b: arg1, cnt: 1 };
-        const real = (arg0) => {
-            state.cnt++;
-            const a = state.a;
-            state.a = 0;
-            try {
-                return __wbg_elem_binding2(a, state.b, arg0);
-            } finally {
-                if (--state.cnt === 0) wasm.__wbg_function_table.get(181)(a, state.b);
-                else state.a = a;
-            }
-        }
-        ;
-        real.original = state;
-        try {
-            const ret = real;
-            return addHeapObject(ret);
-        } catch (e) {
-            logError(e)
-        }
-    };
-    imports.wbg.__wbindgen_closure_wrapper16942 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper3966 = function(arg0, arg1, arg2) {
         const state = { a: arg0, b: arg1, cnt: 1 };
         const real = (arg0) => {
             state.cnt++;
@@ -2122,7 +2109,7 @@ function init(module) {
             try {
                 return __wbg_elem_binding1(a, state.b, arg0);
             } finally {
-                if (--state.cnt === 0) wasm.__wbg_function_table.get(1193)(a, state.b);
+                if (--state.cnt === 0) wasm.__wbg_function_table.get(185)(a, state.b);
                 else state.a = a;
             }
         }
@@ -2135,7 +2122,29 @@ function init(module) {
             logError(e)
         }
     };
-    imports.wbg.__wbindgen_closure_wrapper3953 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper17003 = function(arg0, arg1, arg2) {
+        const state = { a: arg0, b: arg1, cnt: 1 };
+        const real = (arg0) => {
+            state.cnt++;
+            const a = state.a;
+            state.a = 0;
+            try {
+                return __wbg_elem_binding2(a, state.b, arg0);
+            } finally {
+                if (--state.cnt === 0) wasm.__wbg_function_table.get(1212)(a, state.b);
+                else state.a = a;
+            }
+        }
+        ;
+        real.original = state;
+        try {
+            const ret = real;
+            return addHeapObject(ret);
+        } catch (e) {
+            logError(e)
+        }
+    };
+    imports.wbg.__wbindgen_closure_wrapper3964 = function(arg0, arg1, arg2) {
         const state = { a: arg0, b: arg1, cnt: 1 };
         const real = (arg0) => {
             state.cnt++;
@@ -2144,7 +2153,7 @@ function init(module) {
             try {
                 return __wbg_elem_binding0(a, state.b, arg0);
             } finally {
-                if (--state.cnt === 0) wasm.__wbg_function_table.get(183)(a, state.b);
+                if (--state.cnt === 0) wasm.__wbg_function_table.get(187)(a, state.b);
                 else state.a = a;
             }
         }
