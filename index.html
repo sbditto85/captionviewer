@@ -11,15 +11,20 @@
     <link rel="stylesheet" type="text/css" href="static/structure.css" />
     <link rel="stylesheet" type="text/css" href="static/theme.css" />
 
-    <title>A Title</title>
+    <title>Arch It</title>
 
 </head>
 <body>
-<section id="app"></section>
+<section id="app"><div id="loading">Loading ...</div></section>
 
 <script src='/pkg/package.js'></script>
 
 <script>
+//function readjusted() {
+//    const { Model } = wasm_bindgen;
+//    return Model.new(1, "yes");
+//}
+
     // the `wasm_bindgen` global is set to the exports of the Rust module
     const { render } = wasm_bindgen;
     // we'll defer our execution until the wasm is ready to go
