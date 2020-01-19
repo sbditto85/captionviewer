@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* eslint-disable */
 /**
 */
 export function render(): void;
@@ -51,7 +52,6 @@ export class WasmBindgenTestContext {
 * A `Context` is the main structure through which test execution is
 * coordinated, and this will collect output and results for all executed
 * tests.
-* @returns {WasmBindgenTestContext} 
 */
   constructor();
 /**
@@ -87,5 +87,5 @@ export class WasmBindgenTestContext {
 *
 * @returns {Promise<any>}
 */
-export default function init (module_or_path: RequestInfo | BufferSource | WebAssembly.Module): Promise<any>;
+export default function init (module_or_path?: RequestInfo | BufferSource | WebAssembly.Module): Promise<any>;
         
