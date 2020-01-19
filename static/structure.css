@@ -6,10 +6,9 @@ body {
 #app {
     height: 100%;
 }
-#loading {
+#app .loading {
     width: 300px;
     margin: 100px auto;
-    font-size: 3em;
 }
 #main_container {
     height: 100%;
@@ -137,4 +136,3 @@ foreignObject.edit {
     list-style: none;
     border-bottom: none;
 }
-    
